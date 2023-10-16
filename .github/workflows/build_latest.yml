@@ -25,7 +25,7 @@ jobs:
           docker build -t $image_repo .
           
           docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-          docker tag $image_repo:latest
+          docker tag $DOCKER_USERNAME/my-web-app-$branch $DOCKER_USERNAME/my-web-app:latest
           docker push $image_repo:latest
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
