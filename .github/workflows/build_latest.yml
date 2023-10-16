@@ -57,11 +57,11 @@ jobs:
           
           # Deploy based on the branch
           if [ "$branch" == "main" ]; then
-            docker run -d -p 8001:3000 $DOCKER_USERNAME/my-web-app-main:latest
+            docker run -d -p 8001:3000 $DOCKER_USERNAME/github-actions-app-main:latest
           elif [ "$branch" == "qa" ]; then
-            docker run -d -p 8002:3000 $DOCKER_USERNAME/my-web-app-qa:latest
+            docker run -d -p 8002:3000 $DOCKER_USERNAME/github-actions-app-qa:latest
           elif [ "$branch" == "dev" ]; then
-            docker run -d -p 8003:3000 $DOCKER_USERNAME/my-web-app-dev:latest
+            docker run -d -p 8003:3000 $DOCKER_USERNAME/github-actions-app-dev:latest
           fi
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
